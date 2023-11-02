@@ -1,0 +1,15 @@
+{
+  "name": "Brain In Vat",
+  "description": "An AI-driven extension that answers questions from webpages and stores data locally.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "logo.png"
+  },
+  "background": {
+    "service_worker": "background.min.js"
+  },
+  "host_permissions": ["https://api.openai.com/"],
+  "permissions": ["storage", "activeTab", "scripting", "unlimitedStorage", "webRequest"]
+}

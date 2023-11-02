@@ -1,0 +1,27 @@
+{
+  "name": "bgjs",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "test": "vitest"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.2",
+    "fake-indexeddb": "^4.0.2",
+    "happy-dom": "^12.2.0",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.5"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "install": "^0.13.0",
+    "langchain": "^0.0.153",
+    "openai": "^4.11.0",
+    "vector-storage": "^1.0.55"
+  }
+}

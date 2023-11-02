@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply m-0 w-96 border-2 border-neutral mx-auto h-[30rem] p-4;
+    }
+
+    #app {
+        @apply h-full;
+    }
+}
+
+@layer components {
+    .pageTitle {
+        @apply pt-1 font-bold cursor-default;
+    }
+    .pageHeader {
+        @apply flex justify-between h-8 pb-1;
+    }
+    .btnEmoji {
+        @apply btn btn-ghost hover:btn-primary btn-sm text-xl rounded-full;
+    }
+    .myNoti {
+        @apply mt-4 text-center;
+        .notification-title {
+            @apply text-center;
+        }
+        .notification-content {
+            @apply text-center;
+        }
+        &.success,
+        &.info,
+        &.error {
+            @apply border-2 border-neutral;
+        }
+        &.success {
+            @apply bg-success;
+        }
+        &.info {
+            @apply bg-info;
+        }
+        &.warn {
+            @apply bg-warning;
+        }
+        &.error {
+            @apply bg-error;
+        }
+    }
+    .divBox {
+        box-shadow: 0px 3px 0px -1px #000;
+        @apply border-2 border-black rounded-xl;
+    }
+    .btnImg {
+        @apply w-6 m-auto;
+    }
+    .appBtn {
+        @extend .divBox;
+        @apply w-11 h-11 rounded-full hover:bg-primary;
+    }
+    .pageBody {
+        height: calc(100% - 2.75rem);
+    }
+}
