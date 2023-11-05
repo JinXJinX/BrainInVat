@@ -9,7 +9,7 @@ Brain In Vat is a Chrome extension designed to leverage Retrieval-Augmented Gene
 - **Retrieval-Augmented Generation**: Utilizes RAG to provide contextual understanding and generate human-like text based on the retrieved information.
 - **Real-Time Analysis**: Processes the extracted data in real-time, aiding in instant decision-making and information gathering.
 
-![tour](https://github.com/JinXJinX/BrainInVat/blob/main/doc/tux.png)
+![tour](https://github.com/JinXJinX/BrainInVat/blob/main/doc/tour.png)
 
 
 ## Installation
