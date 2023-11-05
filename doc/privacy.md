@@ -40,4 +40,4 @@ We may update our Privacy Policy from time to time to reflect changes to our pra
 
 ### Contact Information
 
-If you have any questions about this Privacy Policy, please contact us at [Your Contact Information].
+If you have any questions about this Privacy Policy, please contact us at jinx@criptext.com

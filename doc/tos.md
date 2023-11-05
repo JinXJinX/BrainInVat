@@ -40,4 +40,4 @@ We may terminate or suspend your access to the Service immediately, without prio
 These ToS shall be governed and construed in accordance with the laws of the United States, without regard to its conflict of law provisions.
 
 ### 12. Contact Us
-If you have any questions about these ToS, please contact us at [Your Contact Information].
+If you have any questions about these ToS, please contact us at jinx@criptext.com.
