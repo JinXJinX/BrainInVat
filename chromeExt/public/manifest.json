@@ -11,5 +11,5 @@
     "service_worker": "background.min.js"
   },
   "host_permissions": ["https://api.openai.com/"],
-  "permissions": ["storage", "activeTab", "scripting", "unlimitedStorage", "webRequest"]
+  "permissions": ["storage", "activeTab", "scripting", "unlimitedStorage"]
 }

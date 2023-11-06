@@ -134,8 +134,7 @@ onMounted(async () => {
         <p class="font-bold">{{ pageList.length }}</p>
         <p class="">Storage:</p>
         <p>
-          <span class="font-bold">{{ utils.formatSize(dbInfo?.size || 0) }}</span> /
-          <span class="font-bold">{{ utils.formatSize(dbInfo?.quota || 0) }}</span>
+          <span class="font-bold">{{ utils.formatSize(dbInfo?.size || 0) }}</span>
         </p>
       </div>
       <div class="inline-block align-top pt-6" style="width: calc(100% - 13rem);">
