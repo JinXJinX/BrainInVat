@@ -49,7 +49,7 @@ onMounted(() => {
                     <span class="label-text font-bold">OpenAI API Key</span>
                 </label>
                 <input type="text" placeholder="sk-" class="input input-md input-bordered w-full border-neutral border-2"
-                    v-model="inpAPIKey" />
+                    @keyup.enter="onClickSave" v-model="inpAPIKey" />
                 <label class="label pt-1">
                     <span class="label-text">
                         <a href="https://help.openai.com/en/articles/4936850-where-do-i-find-my-secret-api-key" class="link"
@@ -59,11 +59,15 @@ onMounted(() => {
                     </span>
                 </label>
             </div>
+            <div v-if="!showBackBtn" class="px-4 mt-2">
+                <img class="w-full" src="/tour.png">
+            </div>
         </div>
         <button class="btn btn-block absolute bottom-0 btn-primary" @click="onClickSave"
             :disabled="!utils.isValidOpenAIKey(inpAPIKey) || loading">
             <span v-if="loading" class="loading loading-infinity loading-lg text-info"></span>
-            <span v-else> Save Change </span>
+            <span v-else-if="showBackBtn">Save Change</span>
+            <span v-else>Start</span>
         </button>
     </div>
 </template>

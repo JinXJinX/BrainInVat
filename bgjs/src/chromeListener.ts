@@ -48,78 +48,77 @@ const msgHelper = async (req: Record<string, any>) => {
     let resp: Record<string, any> = {
         ok: false
     };
-    const asst = await getAsst(req)
-    if (asst) {
-
-        switch (req.type) {
-            case "chat":
-                if (asst) {
-                    resp.ok = true
-                    resp.msg = await asst.query(req.query)
-                } else {
-                    resp.error = "asst not ready"
-                }
-                break;
-            case "getChatLog":
-                const logs = await asst.getChatLog(req.link)
-                resp.ok = true
-                resp.data = logs
-                break;
-            case "addChatLog":
-                await asst.addChatLog(req.log, req.link)
-                resp.ok = true
-                break;
-            case "setKey":
-                if (await utils.testOpenAIKey(req.key)) {
-                    await initAsst(req.key)
-                    await saveKey(req.key)
-                    resp.ok = true;
-                }
-                break;
-            case "getKey":
-                const key = await getKey()
-                resp.ok = !!key
-                resp.data = key
-                break;
-            case "handshake":
-                resp.ok = !!asst;
-                break;
-            case "addPage":
-                if (req.temp) {
-                    await reloadTempAsst()
-                }
-                const summary = await asst.addPage(req.link, req.title, req.content)
-                console.log("return sum ", summary)
-                resp.ok = true;
-                resp.summary = summary
-                break;
-            case "delPage":
-                await asst.delPage(req.link)
-                resp.ok = true;
-                break;
-            case "setScope":
-                await asst.initOpenAI(req.scope)
-                resp.ok = true;
-                break;
-            case "getPageList":
-                const pages = await asst.getPageList(req.link)
-                resp.ok = true
-                resp.data = pages
-                break;
-            case "log":
-                console.log("[LOG] ", req)
-                resp.ok = true
-                break;
-            case "info":
-                const info = await asst.info()
-                resp.ok = true
-                resp.data = info
-                break;
-            default:
-                break;
+    if (req.type === "setKey") {
+        if (await utils.testOpenAIKey(req.key)) {
+            await initAsst(req.key)
+            await saveKey(req.key)
+            resp.ok = true;
         }
     } else {
-        resp.error = "asst not ready"
+        const asst = await getAsst(req)
+        if (asst) {
+            switch (req.type) {
+                case "chat":
+                    if (asst) {
+                        resp.ok = true
+                        resp.msg = await asst.query(req.query)
+                    } else {
+                        resp.error = "asst not ready"
+                    }
+                    break;
+                case "getChatLog":
+                    const logs = await asst.getChatLog(req.link)
+                    resp.ok = true
+                    resp.data = logs
+                    break;
+                case "addChatLog":
+                    await asst.addChatLog(req.log, req.link)
+                    resp.ok = true
+                    break;
+                case "getKey":
+                    const key = await getKey()
+                    resp.ok = !!key
+                    resp.data = key
+                    break;
+                case "handshake":
+                    resp.ok = !!asst;
+                    break;
+                case "addPage":
+                    if (req.temp) {
+                        await reloadTempAsst()
+                    }
+                    const summary = await asst.addPage(req.link, req.title, req.content)
+                    resp.ok = true;
+                    resp.summary = summary
+                    break;
+                case "delPage":
+                    await asst.delPage(req.link)
+                    resp.ok = true;
+                    break;
+                case "setScope":
+                    await asst.initOpenAI(req.scope)
+                    resp.ok = true;
+                    break;
+                case "getPageList":
+                    const pages = await asst.getPageList(req.link)
+                    resp.ok = true
+                    resp.data = pages
+                    break;
+                case "log":
+                    console.log("[LOG] ", req)
+                    resp.ok = true
+                    break;
+                case "info":
+                    const info = await asst.info()
+                    resp.ok = true
+                    resp.data = info
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            resp.error = "asst not ready"
+        }
     }
     return resp
 }

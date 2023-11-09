@@ -30,13 +30,13 @@ const setKey = async (key: string): Promise<Record<string, any>> => {
     return await helper({
         type: "setKey",
         key,
-    }, true)
+    })
 };
 
 const getKey = async (): Promise<string | null> => {
     const rst = await helper({
         type: "getKey",
-    })
+    }, true)
     return rst.ok ? rst.data : null
 };
 
