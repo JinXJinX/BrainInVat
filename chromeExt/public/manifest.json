@@ -1,7 +1,7 @@
 {
   "name": "Brain In Vat",
   "description": "An AI-driven extension that answers questions from webpages and stores data locally.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "manifest_version": 3,
   "action": {
     "default_popup": "index.html",

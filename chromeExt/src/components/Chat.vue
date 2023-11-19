@@ -105,8 +105,7 @@ const loadChatLog = async () => {
       if (page) {
         msg = page?.summary || ""
       } else {
-        let content = await pageUtils.getPageContent()
-        content = utils.extractHtmlContent(content)
+        const content = utils.extractHtmlContent(await pageUtils.getPageContent())
         const summary = await bgjsUtils.addPage(props.link, "", content, true)
         msg = summary
         // page = await bgjsUtils.getPage(props.link, true)

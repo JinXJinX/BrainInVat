@@ -4,7 +4,7 @@ import utils from "./utils"
 
 declare let chrome: any;
 
-const getPageContent = async (): Promise<string> => {
+const getPageContentHelper = async (): Promise<string> => {
     const [tab] = await chrome.tabs.query({
         active: true,
         currentWindow: true,
@@ -12,7 +12,8 @@ const getPageContent = async (): Promise<string> => {
     const rst: any[] = await chrome.scripting.executeScript({
         target: { tabId: tab.id },
         func: () => {
-            return document.body.textContent
+            // return document.body.textContent
+            return document.body.outerHTML
             // return document.getElementsByTagName("html")[0].innerHTML
         },
     });
@@ -21,7 +22,18 @@ const getPageContent = async (): Promise<string> => {
         pData = rst[i].result;
         break;
     }
-    return pData;
+    return pData
+};
+
+
+const getPageContent = async (): Promise<string> => {
+    let rst = ""
+    try {
+        rst = await getPageContentHelper()
+    } catch (err: any) {
+
+    }
+    return rst
 };
 
 const getPageMetaDataHelper = async (): Promise<PageMetaData> => {

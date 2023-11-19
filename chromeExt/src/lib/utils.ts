@@ -1,3 +1,5 @@
+import { Readability } from "@mozilla/readability"
+
 const sleep = async (ms: number) => {
     await new Promise((r) => setTimeout(r, ms));
 };
@@ -66,8 +68,15 @@ const getDomainFromUrl = (url: string): string => {
 }
 
 const extractHtmlContent = (inp: string): string => {
-    const content = inp.replace(/\n+/g, '\n').replace(/\s+/g, ' ').trim();
-    return content
+    try {
+        const parser = new DOMParser();
+        const doc = parser.parseFromString(inp, 'text/html');
+        var article = new Readability(doc).parse();
+        const content = article?.textContent.replace(/\n+/g, '\n').replace(/\s+/g, ' ').trim();
+        return content || ""
+    } catch (err: any) {
+        return ""
+    }
 }
 
 export default {

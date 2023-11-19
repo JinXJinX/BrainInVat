@@ -27,9 +27,7 @@ const addBtnTooltilp = computed(() => {
 const addPage = async (temp: boolean) => {
   const meta = currPageMeta.value
   if (!meta) return
-  let content = await pageUtils.getPageContent()
-  if (content.length === 0) return
-  content = utils.extractHtmlContent(content)
+  const content = utils.extractHtmlContent(await pageUtils.getPageContent())
   await bgjsUtils.addPage(meta.link, meta.title, content, temp)
 }
 

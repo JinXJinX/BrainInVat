@@ -1,5 +1,5 @@
-import { PageMetaData } from "../types";
-
+import { expect, test } from "vitest";
+// import Readability from "@mozilla/readability"
 
 const text = `
 <!DOCTYPE html>
@@ -27,20 +27,12 @@ const text = `
     </html>
 `;
 
-const getPageContent = async (): Promise<string> => {
-    // return null
-    return text
-};
+test("readability", async () => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(text, 'text/html');
+    // let article = new Readability.Readability(doc).parse();
+    // console.log(article)
 
-const getPageMetaData = async (): Promise<PageMetaData> => {
-    return {
-        favicon: "favicon",
-        link: "link",
-        title: "titletitletitle title titletitle".repeat(10),
-    };
-};
-
-export default {
-    getPageMetaData,
-    getPageContent,
-};
+    // expect(rst.length).greaterThan(0);
+    // expect(rst.startsWith("LangChain")).toBeTruthy()
+});
