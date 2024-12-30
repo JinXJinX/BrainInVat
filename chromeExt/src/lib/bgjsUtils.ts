@@ -13,7 +13,8 @@ const helper = async (inp: Record<string, any>, silent?: boolean): Promise<Recor
             text: msg,
             type: "error",
         });
-        throw new Error(msg)
+        // throw new Error(msg)
+        throw new Error(JSON.stringify(resp))
     }
     return resp
 }

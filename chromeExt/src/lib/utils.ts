@@ -59,7 +59,7 @@ const formatSize = (size: number): string => {
 }
 
 const isValidOpenAIKey = (key: string): boolean => {
-    const regex = /sk-[a-zA-Z0-9]{30,60}/;
+    const regex = /sk-[a-zA-Z0-9-_]{30,180}/;
     return regex.test(key);
 }
 

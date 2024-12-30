@@ -17,12 +17,13 @@ export class Bot {
     async init() {
         const vectorStore = await MemoryVectorStore.fromExistingIndex(
             new OpenAIEmbeddings({
-                openAIApiKey: this.apiKey
+                openAIApiKey: this.apiKey,
             })
         );
         this.vectorDb = vectorStore
         const model = new OpenAI({
             openAIApiKey: this.apiKey,
+            modelName: "gpt-3.5-turbo-instruct",
         });
         // const memory = new BufferMemory();
         // this.memory = memory

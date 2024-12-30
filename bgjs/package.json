@@ -10,18 +10,18 @@
     "test": "vitest"
   },
   "devDependencies": {
-    "@types/crypto-js": "^4.2.1",
+    "@types/crypto-js": "^4.2.2",
     "fake-indexeddb": "^4.0.2",
     "happy-dom": "^12.10.3",
-    "typescript": "^5.2.2",
-    "vite": "^4.5.0",
+    "typescript": "^5.7.2",
+    "vite": "^4.5.5",
     "vitest": "^0.34.6"
   },
   "dependencies": {
     "crypto-js": "^4.2.0",
     "install": "^0.13.0",
     "langchain": "^0.0.153",
-    "openai": "^4.19.0",
+    "openai": "^4.77.0",
     "vector-storage": "^1.0.55"
   }
 }

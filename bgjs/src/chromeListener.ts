@@ -49,7 +49,10 @@ const msgHelper = async (req: Record<string, any>) => {
         ok: false
     };
     if (req.type === "setKey") {
-        if (await utils.testOpenAIKey(req.key)) {
+        const errMsg = await utils.testOpenAIKey(req.key)
+        if (errMsg) {
+            resp.error = errMsg
+        } else {
             await initAsst(req.key)
             await saveKey(req.key)
             resp.ok = true;

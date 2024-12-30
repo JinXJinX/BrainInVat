@@ -102,6 +102,7 @@ export class Assistant {
         })
         const model = new OpenAI({
             openAIApiKey: this.key,
+            modelName: "gpt-3.5-turbo-instruct",
         });
         this.vectorStore = new MemoryVectorStore(embedding);
         let retriever = this.vectorStore.asRetriever()

@@ -25,6 +25,7 @@ export class Bot {
         this.vectorDb = vectorStore
         const model = new OpenAI({
             openAIApiKey: this.apiKey,
+            modelName: "gpt-3.5-turbo-instruct",
         });
 
         const pastMessages: BaseMessage[] = [];

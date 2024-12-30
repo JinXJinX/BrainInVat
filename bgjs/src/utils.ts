@@ -52,7 +52,7 @@ const text2docs = async (inp: string, metadata?: Record<string, any>) => {
     return docs
 }
 
-const testOpenAIKey = async (key: string) => {
+const testOpenAIKey = async (key: string): Promise<string|null> => {
     try {
         const openai = new OpenAI({
             apiKey: key,
@@ -64,9 +64,10 @@ const testOpenAIKey = async (key: string) => {
             max_tokens: 1,
             n: 1,
         })
-        return true
-    } catch (e) {
-        return false
+        return null
+        // return true, ""
+    } catch (e: any) {
+        return e.toString()
     }
 }
 
